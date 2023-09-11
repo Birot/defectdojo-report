@@ -90,7 +90,7 @@ export class DefectDojoApiClient {
         + `&limit=100&${filters}&related_fields=true`;
       const findings = [];
       let findingsPage = 0;
-      while (findingsUrl && findingsPage < 20) {
+      while (findingsUrl) {
         console.log(`[info] Fetching findings (page ${findingsPage}): ${findingsUrl}`);
         let findingsResponse = await this.http.get(findingsUrl);
         let findingsData = findingsResponse.data;
